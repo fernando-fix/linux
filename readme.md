@@ -1,3 +1,9 @@
+## Redefinir senha root
+
+```bash
+sudo passwd root
+```
+
 ## Google chrome
 
 ```bash
@@ -26,6 +32,8 @@ sudo apt update
 sudo apt upgrade
 
 sudo apt install software-properties-common ca-certificates lsb-release apt-transport-https
+sudo LC_ALL=C.UTF-8 sudo add-apt-repository ppa:ondrej/php 
+sudo apt update
 
 sudo apt install php7.4 
 sudo apt install php7.4-mysql php7.4-mbstring php7.4-xml php7.4-curl 
@@ -38,6 +46,8 @@ sudo apt install php8.2-mysql php8.2-mbstring php8.2-xml php8.2-curl
 
 sudo apt install php8.3 
 sudo apt install php8.3-mysql php8.3-mbstring php8.3-xml php8.3-curl
+
+php -v
 ```
 
 ### Alternar versão de PHP
