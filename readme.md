@@ -89,10 +89,6 @@ mkdir /var/www/html/phpmyadmin
 tar xvf phpMyAdmin-latest-all-languages.tar.gz --strip-components=1 -C /var/www/html/phpmyadmin
 cp /var/www/html/phpmyadmin/config.sample.inc.php /var/www/html/phpmyadmin/config.inc.php
 nano /var/www/html/phpmyadmin/config.inc.php
-
-chose a blowfish secret key on $cfg['blowfish_secret'] = 'coloqueaquiasuasecretkey';
-ctrl+x para sallvar e sair do arquivo
-
 chmod 660 /var/www/html/phpMyAdmin/config.inc.php
 chown -R www-data:www-data /var/www/html/phpmyadmin/
 systemctl restart apache2
