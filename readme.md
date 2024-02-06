@@ -66,7 +66,6 @@ php composer-setup.php
 php -r "unlink('composer-setup.php');"
 
 sudo mv composer.phar /usr/local/bin/composer
-
 ```
 
 ## MariaDB
@@ -91,5 +90,23 @@ cp /var/www/html/phpmyadmin/config.sample.inc.php /var/www/html/phpmyadmin/confi
 nano /var/www/html/phpmyadmin/config.inc.php
 chmod 660 /var/www/html/phpmyadmin/config.inc.php
 chown -R www-data:www-data /var/www/html/phpmyadmin/
+systemctl restart apache2
+```
+
+## Alterar senha do root no phpmyadmin
+```bash
+mysql -u root
+ALTER USER 'root'@'localhost' INDENTIFIED BY 'novaSenha';
+```
+
+## dar permissões para a pasta html
+```bash
+sudo chmod -R 777 /var/www/html/ 
+```
+
+## alterar arquivos para acesso local
+```bash
+sudo nano /etc/apache2/sites-enabled/000-default.conf
+sudo nano /etc/hosts
 systemctl restart apache2
 ```
