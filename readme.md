@@ -129,6 +129,9 @@ systemctl restart apache2
 # Instalar nvm e Node com opções de gerenciamento da versão
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 
+# Habilitar o nvm
+source ~/.profile
+
 # Listar as versões instaladas
 nvm ls
 
