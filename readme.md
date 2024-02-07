@@ -52,6 +52,19 @@ php -v
 
 ### Alternar versão de PHP
 ```bash
+# Alterar de php7.4 para php8.3
+sudo update-alternatives --set php /usr/bin/php8.3
+sudo a2dismod php7.4
+sudo a2enmod php8.3
+sudo systemctl restart apache2
+
+# Alterar de php8.3 para php7.4
+sudo update-alternatives --set php /usr/bin/php7.4
+sudo a2dismod php8.3
+sudo a2enmod php7.4
+sudo systemctl restart apache2
+
+# Escolher versão do php pelo menu
 sudo update-alternatives --config php
 ```
 
