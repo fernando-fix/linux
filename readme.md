@@ -123,3 +123,40 @@ sudo nano /etc/apache2/sites-enabled/000-default.conf
 sudo nano /etc/hosts
 systemctl restart apache2
 ```
+
+## Node
+```bash
+# Instalar nvm e Node com opções de gerenciamento da versão
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+
+# Listar as versões instaladas
+nvm ls
+
+# Listar versões disponíveis para instalação
+nvm ls-remote
+
+# Instalar a versão desejada
+nvm install vX.X.X
+
+# Para instalar a versão mais recente basta
+nvm install node
+
+# Para remover uma versão instalada
+nvm uninstall vX.X.X
+
+# Para trocar a versão a ser utiliada
+nvm use vX.X.X
+
+# Caso deseje nomear as versões para facilitar a troca entre versões
+nvm alias meunome vX.X.X
+nvm use meunome
+
+# Para remver um nome para a versão
+nvm unalias meunome
+
+# Definir uma versão como padrão
+nvm alias default vX.X.X
+
+# Verificar a versão atual
+nvm current
+```
