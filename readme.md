@@ -19,13 +19,20 @@ sudo apt update
 sudo apt upgrade
 sudo apt install snapd
 ```
+
+## Update GIT
+```bash
+add-apt-repository ppa:git-core/ppa
+sudo apt update
+sudo apt install git
+```
+
 ## Visual Studio Code
 ```bash
 sudo apt update
 sudo apt upgrade
 sudo snap install code --classic
 ```
-
 ## PHP
 ```bash
 sudo apt update
