@@ -23,7 +23,7 @@ sudo apt install git
 ## Snap
 ```bash
 sudo apt update
-sudo apt upgrade
+sudo apt upgradegt
 sudo apt install snapd
 ```
 
@@ -45,6 +45,9 @@ sudo apt update
 sudo apt install php7.4 
 sudo apt install php7.4-mysql php7.4-mbstring php7.4-xml php7.4-curl 
 
+sudo apt install php8.0 
+sudo apt install php8.0-mysql php8.0-mbstring php8.0-xml php8.0-curl 
+
 sudo apt install php8.1 
 sudo apt install php8.1-mysql php8.1-mbstring php8.1-xml php8.1-curl 
 
@@ -59,22 +62,65 @@ php -v
 
 ### Alternar versão de PHP
 ```bash
-# Alterar de php7.4 para php8.3
-sudo update-alternatives --set php /usr/bin/php8.3
+
+# Alterar versão do PHP para php7.4
 sudo a2dismod php7.4
-sudo a2enmod php8.3
+sudo a2dismod php8.0
+sudo a2dismod php8.1
+sudo a2dismod php8.2
+sudo a2dismod php8.3
+sudo update-alternatives --set php /usr/bin/php7.4
+sudo a2enmod php7.4
 sudo systemctl restart apache2
 php -v
 
-# Alterar de php8.3 para php7.4
-sudo update-alternatives --set php /usr/bin/php7.4
+# Alterar versão do PHP para php8.0
+sudo a2dismod php7.4
+sudo a2dismod php8.0
+sudo a2dismod php8.1
+sudo a2dismod php8.2
 sudo a2dismod php8.3
-sudo a2enmod php7.4
+sudo update-alternatives --set php /usr/bin/php8.0
+sudo a2enmod php8.0
+sudo systemctl restart apache2
+php -v
+
+# Alterar versão do PHP para php8.1
+sudo a2dismod php7.4
+sudo a2dismod php8.0
+sudo a2dismod php8.1
+sudo a2dismod php8.2
+sudo a2dismod php8.3
+sudo update-alternatives --set php /usr/bin/php8.1
+sudo a2enmod php8.1
+sudo systemctl restart apache2
+php -v
+
+# Alterar versão do PHP para php8.2
+sudo a2dismod php7.4
+sudo a2dismod php8.0
+sudo a2dismod php8.1
+sudo a2dismod php8.2
+sudo a2dismod php8.3
+sudo update-alternatives --set php /usr/bin/php8.2
+sudo a2enmod php8.2
+sudo systemctl restart apache2
+php -v
+
+# Alterar versão do PHP para php8.3
+sudo a2dismod php7.4
+sudo a2dismod php8.0
+sudo a2dismod php8.1
+sudo a2dismod php8.2
+sudo a2dismod php8.3
+sudo update-alternatives --set php /usr/bin/php8.3
+sudo a2enmod php8.3
 sudo systemctl restart apache2
 php -v
 
 # Escolher versão do php pelo menu
 sudo update-alternatives --config php
+
 ```
 
 ## Composer
