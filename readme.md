@@ -43,19 +43,19 @@ sudo LC_ALL=C.UTF-8 sudo add-apt-repository ppa:ondrej/php
 sudo apt update
 
 sudo apt install php7.4 
-sudo apt install php7.4-mysql php7.4-mbstring php7.4-xml php7.4-curl 
+sudo apt install php7.4-mysql php7.4-mbstring php7.4-xml php7.4-curl php7.4-zip 
 
 sudo apt install php8.0 
-sudo apt install php8.0-mysql php8.0-mbstring php8.0-xml php8.0-curl 
+sudo apt install php8.0-mysql php8.0-mbstring php8.0-xml php8.0-curl php8.0-zip 
 
 sudo apt install php8.1 
-sudo apt install php8.1-mysql php8.1-mbstring php8.1-xml php8.1-curl 
+sudo apt install php8.1-mysql php8.1-mbstring php8.1-xml php8.1-curl php8.1-zip 
 
 sudo apt install php8.2 
-sudo apt install php8.2-mysql php8.2-mbstring php8.2-xml php8.2-curl 
+sudo apt install php8.2-mysql php8.2-mbstring php8.2-xml php8.2-curl php8.2-zip 
 
 sudo apt install php8.3 
-sudo apt install php8.3-mysql php8.3-mbstring php8.3-xml php8.3-curl
+sudo apt install php8.3-mysql php8.3-mbstring php8.3-xml php8.3-curl php8.3-zip
 
 php -v
 ```
