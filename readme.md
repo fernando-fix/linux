@@ -218,3 +218,26 @@ nvm alias default vX.X.X
 # Verificar a versão atual
 nvm current
 ```
+
+# Preparar ambiente da digital ocean
+```bash
+# gerar uma chave pública e privada no computador local
+ssh-keygen
+
+# desvincular conexões antigas de uma conexão
+ssh-keygen -R seuIp
+
+# conectar no servidor ssh
+ssh root@seuIp
+# conectar no servidor ssh informando uma porta específica
+ssh root@seuIp -p numeroDaPorta
+# conectar no servidor ssh informando uma chave ssh específica
+ssh root@seuIp -i nomeDaChave
+
+# Adicionar usuário no sistema
+adduser seuUsuario
+# Copiar chave ssh para a pasta do usuário criado
+cp -r ~/.ssh /home/seuUsuario/
+# Alterar permissões da pasta do usuário criado
+sudo chown -R seuUsuario:seuUsuario /home/seuUsuario/.ssh
+```
