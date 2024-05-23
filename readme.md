@@ -38,24 +38,19 @@ sudo snap install code --classic
 sudo apt update
 sudo apt upgrade
 
-sudo apt install software-properties-common ca-certificates lsb-release apt-transport-https
-sudo LC_ALL=C.UTF-8 sudo add-apt-repository ppa:ondrej/php 
-sudo apt update
+sudo apt install software-properties-common ca-certificates lsb-release apt-transport-https -y
+sudo LC_ALL=C.UTF-8 sudo add-apt-repository ppa:ondrej/php -y
+sudo apt update -y 
 
-sudo apt install php7.4 
-sudo apt install php7.4-mysql php7.4-mbstring php7.4-xml php7.4-curl php7.4-zip 
+sudo apt install php7.4 php7.4-mysql php7.4-mbstring php7.4-xml php7.4-curl php7.4-zip -y 
 
-sudo apt install php8.0 
-sudo apt install php8.0-mysql php8.0-mbstring php8.0-xml php8.0-curl php8.0-zip 
+sudo apt install php8.0 php8.0-mysql php8.0-mbstring php8.0-xml php8.0-curl php8.0-zip -y 
 
-sudo apt install php8.1 
-sudo apt install php8.1-mysql php8.1-mbstring php8.1-xml php8.1-curl php8.1-zip 
+sudo apt install php8.1 php8.1-mysql php8.1-mbstring php8.1-xml php8.1-curl php8.1-zip -y 
 
-sudo apt install php8.2 
-sudo apt install php8.2-mysql php8.2-mbstring php8.2-xml php8.2-curl php8.2-zip 
+sudo apt install php8.2 php8.2-mysql php8.2-mbstring php8.2-xml php8.2-curl php8.2-zip -y 
 
-sudo apt install php8.3 
-sudo apt install php8.3-mysql php8.3-mbstring php8.3-xml php8.3-curl php8.3-zip
+sudo apt install php8.3 php8.3-mysql php8.3-mbstring php8.3-xml php8.3-curl php8.3-zip -y
 
 php -v
 ```
@@ -129,10 +124,8 @@ sudo apt update
 sudo apt upgrade
 
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-php -r "if (hash_file('sha384', 'composer-setup.php') === 'edb40769019ccf227279e3bdd1f5b2e9950eb000c3233ee85148944e555d97be3ea4f40c3c2fe73b22f875385f6a5155') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
 php composer-setup.php
 php -r "unlink('composer-setup.php');"
-
 sudo mv composer.phar /usr/local/bin/composer
 ```
 
@@ -221,6 +214,9 @@ nvm current
 
 # Preparar ambiente da digital ocean
 ```bash
+# listar chaves ssh no seu computador
+ls -la ~/.ssh
+
 # gerar uma chave pública e privada no computador local
 ssh-keygen
 
@@ -234,6 +230,7 @@ ssh root@seuIp -p numeroDaPorta
 # conectar no servidor ssh informando uma chave ssh específica
 ssh root@seuIp -i nomeDaChave
 
+# Após conectar no servidor
 # Adicionar usuário no sistema
 adduser seuUsuario
 # Copiar chave ssh para a pasta do usuário criado
