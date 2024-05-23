@@ -172,6 +172,31 @@ sudo nano /etc/hosts
 systemctl restart apache2
 ```
 
+## dar permissão para endereços web amigáveis
+```bash
+sudo nano /etc/apache2/apache2.conf
+```
+```html
+Alterar:
+<Directory /var/www/>
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Require all granted
+</Directory>
+
+Para:
+<Directory /var/www/>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+</Directory>
+```
+
+## Habilitar modo de reescrita do apache
+```bash
+sudo a2enmod rewrite
+```
+
 ## Node
 ```bash
 # Instalar nvm e Node com opções de gerenciamento da versão
