@@ -20,44 +20,31 @@ sudo apt update
 sudo apt install git
 ```
 
-## Snap
-```bash
-sudo apt update
-sudo apt upgradegt
-sudo apt install snapd
-```
-
-## Visual Studio Code
-```bash
-sudo apt update
-sudo apt upgrade
-sudo snap install code --classic
-```
 ## PHP
 ```bash
 sudo apt update
 sudo apt upgrade
 
 sudo apt install software-properties-common ca-certificates lsb-release apt-transport-https -y
-sudo LC_ALL=C.UTF-8 sudo add-apt-repository ppa:ondrej/php -y
+sudo LC_ALL=C.UTF-8
+sudo add-apt-repository ppa:ondrej/php -y
 sudo apt update -y 
 
-sudo apt install php7.4 php7.4-mysql php7.4-mbstring php7.4-xml php7.4-curl php7.4-zip -y 
+sudo apt install php7.4 php7.4-mysql php7.4-mbstring php7.4-xml php7.4-curl php7.4-zip php7.4-sqlite3 -y 
 
-sudo apt install php8.0 php8.0-mysql php8.0-mbstring php8.0-xml php8.0-curl php8.0-zip -y 
+sudo apt install php8.0 php8.0-mysql php8.0-mbstring php8.0-xml php8.0-curl php8.0-zip php8.0-sqlite3 -y 
 
-sudo apt install php8.1 php8.1-mysql php8.1-mbstring php8.1-xml php8.1-curl php8.1-zip -y 
+sudo apt install php8.1 php8.1-mysql php8.1-mbstring php8.1-xml php8.1-curl php8.1-zip php8.1-sqlite3 -y 
 
-sudo apt install php8.2 php8.2-mysql php8.2-mbstring php8.2-xml php8.2-curl php8.2-zip -y 
+sudo apt install php8.2 php8.2-mysql php8.2-mbstring php8.2-xml php8.2-curl php8.2-zip php8.2-sqlite3 -y 
 
-sudo apt install php8.3 php8.3-mysql php8.3-mbstring php8.3-xml php8.3-curl php8.3-zip -y
+sudo apt install php8.3 php8.3-mysql php8.3-mbstring php8.3-xml php8.3-curl php8.3-zip php8.3-sqlite3 -y
 
 php -v
 ```
 
 ### Alternar versão de PHP
 ```bash
-
 # Alterar versão do PHP para php7.4
 sudo a2dismod php7.4
 sudo a2dismod php8.0
@@ -115,7 +102,6 @@ php -v
 
 # Escolher versão do php pelo menu
 sudo update-alternatives --config php
-
 ```
 
 ## Composer
@@ -133,11 +119,34 @@ sudo mv composer.phar /usr/local/bin/composer
 ```bash
 sudo apt update
 sudo apt upgrade
-sudo apt install mariadb-server
+sudo apt install mariadb-server -y
 sudo mysql_secure_installation
+# Enter current password for root (enter for none): Enter
+# Switch to unix_socket authentication: Y
+# Change root password: N
+# Remove anonymous users? Y
+# Disallow root login remotely? Y
+# Remove test database and access to it? Y
+# Reload privilege tables now? Y
 ```
 
-## phpmyadmin
+## Criar usuário no mariadb
+```bash
+mysql -u root -p
+GRANT ALL ON *.* TO 'admin'@'localhost' IDENTIFIED BY 'password' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+exit;
+```
+
+## Alterar senha do root no mariadb
+```bash
+mysql -u root
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'novaSenha';
+FLUSH PRIVILEGES;
+exit;
+```
+
+## instalação phpmyadmin
 ```bash
 wget -P Downloads https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz
 wget -P Downloads https://files.phpmyadmin.net/phpmyadmin.keyring
@@ -154,15 +163,10 @@ chown -R www-data:www-data /var/www/html/phpmyadmin/
 systemctl restart apache2
 ```
 
-## Alterar senha do root no phpmyadmin
+## dar permissões para a pasta html e phpmyadmin
 ```bash
-mysql -u root
-ALTER USER 'root'@'localhost' IDENTIFIED BY 'novaSenha';
-```
-
-## dar permissões para a pasta html
-```bash
-sudo chmod -R 777 /var/www/html/ 
+sudo chmod -R 777 /var/www/html/
+sudo chmod -R 755 /var/www/html/phpmyadmin
 ```
 
 ## alterar arquivos para acesso local
@@ -178,6 +182,7 @@ sudo nano /etc/apache2/apache2.conf
 ```
 ```html
 Alterar:
+De:
 <Directory /var/www/>
         Options Indexes FollowSymLinks
         AllowOverride None
