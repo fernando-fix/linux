@@ -20,30 +20,59 @@ sudo apt update
 sudo apt install git
 ```
 
-## PHP
+## Adicionar repositórios PHP no ubuntu
 ```bash
-sudo apt update
-sudo apt upgrade
-
 sudo apt install software-properties-common ca-certificates lsb-release apt-transport-https -y
 sudo LC_ALL=C.UTF-8
 sudo add-apt-repository ppa:ondrej/php -y
-sudo apt update -y 
+sudo apt update 
+```
 
-sudo apt install php7.4 php7.4-mysql php7.4-mbstring php7.4-xml php7.4-curl php7.4-zip php7.4-sqlite3 -y 
+## Adicionar repositórios PHP no debian
+```bash
+sudo apt-get update
+sudo apt-get -y install lsb-release ca-certificates curl
+sudo curl -sSLo /tmp/debsuryorg-archive-keyring.deb https://packages.sury.org/debsuryorg-archive-keyring.deb
+sudo dpkg -i /tmp/debsuryorg-archive-keyring.deb
+sudo sh -c 'echo "deb [signed-by=/usr/share/keyrings/deb.sury.org-php.gpg] https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
+sudo apt-get update
+sudo apt update
+```
 
-sudo apt install php8.0 php8.0-mysql php8.0-mbstring php8.0-xml php8.0-curl php8.0-zip php8.0-sqlite3 -y 
 
-sudo apt install php8.1 php8.1-mysql php8.1-mbstring php8.1-xml php8.1-curl php8.1-zip php8.1-sqlite3 -y 
+## Instalar PHP (versão reduzida)
+```bash
 
-sudo apt install php8.2 php8.2-mysql php8.2-mbstring php8.2-xml php8.2-curl php8.2-zip php8.2-sqlite3 -y 
+sudo apt install php7.4 php7.4-{mysql,mbstring,xml,curl,zip,sqlite3} -y
 
-sudo apt install php8.3 php8.3-mysql php8.3-mbstring php8.3-xml php8.3-curl php8.3-zip php8.3-sqlite3 -y
+sudo apt install php8.0 php8.0-{mysql,mbstring,xml,curl,zip,sqlite3} -y
+
+sudo apt install php8.1 php8.1-{mysql,mbstring,xml,curl,zip,sqlite3} -y
+
+sudo apt install php8.2 php8.2-{mysql,mbstring,xml,curl,zip,sqlite3} -y
+
+sudo apt install php8.3 php8.3-{mysql,mbstring,xml,curl,zip,sqlite3} -y
 
 php -v
 ```
 
-### Alternar versão de PHP
+## Instalar PHP (versão mais completa)
+```bash
+
+sudo apt install php7.4 php7.4-{cli,fpm,curl,mysqlnd,gd,opcache,zip,intl,common,bcmath,imagick,xmlrpc,readline,memcached,redis,mbstring,apcu,xml,dom,memcache,xdebug,soap,mbstring} -y
+
+sudo apt install php8.0 php8.0-{cli,fpm,curl,mysqlnd,gd,opcache,zip,intl,common,bcmath,imagick,xmlrpc,readline,memcached,redis,mbstring,apcu,xml,dom,memcache,xdebug,soap,mbstring} -y
+
+sudo apt install php8.1 php8.1-{cli,fpm,curl,mysqlnd,gd,opcache,zip,intl,common,bcmath,imagick,xmlrpc,readline,memcached,redis,mbstring,apcu,xml,dom,memcache,xdebug,soap,mbstring} -y
+
+sudo apt install php8.2 php8.2-{cli,fpm,curl,mysqlnd,gd,opcache,zip,intl,common,bcmath,imagick,xmlrpc,readline,memcached,redis,mbstring,apcu,xml,dom,memcache,xdebug,soap,mbstring} -y
+
+sudo apt install php8.3 php8.3-{cli,fpm,curl,mysqlnd,gd,opcache,zip,intl,common,bcmath,imagick,xmlrpc,readline,memcached,redis,mbstring,apcu,xml,dom,memcache,xdebug,soap,mbstring} -y
+
+php -v
+```
+
+### Alternar entre versões de PHP
 ```bash
 # Alterar versão do PHP para php7.4
 sudo a2dismod php7.4
