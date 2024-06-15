@@ -19,6 +19,12 @@ add-apt-repository ppa:git-core/ppa
 sudo apt update
 sudo apt install git
 ```
+## configurar git
+```bash
+git config --global user.name "SeuNome"
+git config --global user.email SeuEmail@hotmail.com
+git config --global init.defaultBranch main
+```
 
 ## Adicionar repositórios PHP no ubuntu
 ```bash
