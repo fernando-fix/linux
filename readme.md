@@ -26,6 +26,11 @@ git config --global user.email SeuEmail@hotmail.com
 git config --global init.defaultBranch main
 ```
 
+## Instalar apache2
+```bash
+sudo apt install apache2
+```
+
 ## Adicionar repositórios PHP no ubuntu
 ```bash
 sudo apt install software-properties-common ca-certificates lsb-release apt-transport-https -y
@@ -76,6 +81,13 @@ sudo apt install php8.2 php8.2-{cli,fpm,curl,mysqlnd,gd,opcache,zip,intl,common,
 sudo apt install php8.3 php8.3-{cli,fpm,curl,mysqlnd,gd,opcache,zip,intl,common,bcmath,imagick,xmlrpc,readline,memcached,redis,mbstring,apcu,xml,dom,memcache,xdebug,soap,mbstring} -y
 
 php -v
+```
+
+### Finalizar instalação do apache
+```bash
+a2enmod proxy_fcgi sevenvif
+a2enconf php8.3-fpm
+systemctl restart apache2
 ```
 
 ### Alternar entre versões de PHP
