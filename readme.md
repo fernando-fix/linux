@@ -54,15 +54,15 @@ sudo apt update
 ## Instalar PHP (versão reduzida)
 ```bash
 
-sudo apt install php7.4 php7.4-{mysql,mbstring,xml,curl,zip,sqlite3} -y
+sudo apt install php7.4 php7.4-{fpm,mysql,mbstring,xml,curl,zip,sqlite3} -y
 
-sudo apt install php8.0 php8.0-{mysql,mbstring,xml,curl,zip,sqlite3} -y
+sudo apt install php8.0 php8.0-{fpm,mysql,mbstring,xml,curl,zip,sqlite3} -y
 
-sudo apt install php8.1 php8.1-{mysql,mbstring,xml,curl,zip,sqlite3} -y
+sudo apt install php8.1 php8.1-{fpm,mysql,mbstring,xml,curl,zip,sqlite3} -y
 
-sudo apt install php8.2 php8.2-{mysql,mbstring,xml,curl,zip,sqlite3} -y
+sudo apt install php8.2 php8.2-{fpm,mysql,mbstring,xml,curl,zip,sqlite3} -y
 
-sudo apt install php8.3 php8.3-{mysql,mbstring,xml,curl,zip,sqlite3} -y
+sudo apt install php8.3 php8.3-{fpm,mysql,mbstring,xml,curl,zip,sqlite3} -y
 
 php -v
 ```
