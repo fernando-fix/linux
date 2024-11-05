@@ -51,6 +51,7 @@ docker exec -it ankivesp_app_1 bash
 
 ## Finalizar o deploy com os comandos artisan do laravel
 ```bash
+git config --global --add safe.directory /var/www
 composer install
 php artisan key:generate
 php artisan migrate --seed
