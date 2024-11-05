@@ -34,6 +34,18 @@ nano .env
 ## Fazer deploy da aplicação e entrar no bash
 ```bash
 sudo docker-compose up -d
+docker exec -u root -it ankivesp_app_1 bash
+```
+
+## Liberar as permissões da pasta www
+```bash
+chown -R www-data:www-data /var/www
+chmod -R 775 /var/www
+exit
+```
+
+## Entrar no usuário padrão do sistema
+```bash
 docker exec -it ankivesp_app_1 bash
 ```
 
