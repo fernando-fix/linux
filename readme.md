@@ -216,10 +216,41 @@ sudo chmod -R 777 /var/www/html/
 sudo chmod -R 755 /var/www/html/phpmyadmin
 ```
 
+## clonar o projeto na pasta /var/www/html
+```bash
+git clone https://github.com/username/repositorio
+```
+## Liberar permissões para o projeto laravel
+```bash
+# Navegar até o projeto
+cd /var/www/html/nome_do_projeto
+# Liberar permissões
+sudo chmod -R 755 storage bootstrap/cache
+```
+
 ## alterar arquivos para acesso local
 ```bash
 sudo nano /etc/apache2/sites-enabled/000-default.conf
+```
+```html
+<!-- Exemplo -->
+<VirtualHost *:80>
+        ServerName nome_do_projeto.local
+        ServerAlias www.nome_do_projeto.local
+        DocumentRoot /var/www/html/projetos/nome_do_projeto/public
+</VirtualHost>
+```
+
+## adicionar endereço local no arquivo hosts
+```bash
 sudo nano /etc/hosts
+```
+```html
+<!-- Exemplo -->
+127.0.0.1       nome_do_projeto.local www.nome_do_projeto.local
+```
+## reiniciar o apache
+```bash
 systemctl restart apache2
 ```
 
@@ -314,4 +345,27 @@ adduser seuUsuario
 cp -r ~/.ssh /home/seuUsuario/
 # Alterar permissões da pasta do usuário criado
 sudo chown -R seuUsuario:seuUsuario /home/seuUsuario/.ssh
+```
+
+# Limpar kernels e pacotes orfãos
+```bash
+# Limpar kernels e pacotes orfãos
+echo "🧹 Limpando kernels antigos e pacotes órfãos..."
+echo "Versão atual do kernel: $(uname -r)"
+echo
+
+# Simula a remoção primeiro
+echo "🔍 Verificando o que será removido..."
+sudo apt autoremove --dry-run
+echo
+
+# Confirma a remoção
+read -p "Deseja continuar com a remoção? [s/N]: " confirm
+if [[ "$confirm" == "s" || "$confirm" == "S" ]]; then
+    echo
+    sudo apt autoremove -y
+    echo "✅ Limpeza concluída."
+else
+    echo "❌ Operação cancelada."
+fi
 ```
