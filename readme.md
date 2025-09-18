@@ -163,10 +163,15 @@ sudo mv composer.phar /usr/local/bin/composer
 ```
 
 ## MariaDB
+1. Instalar MariaDB
 ```bash
 sudo apt update
 sudo apt upgrade
 sudo apt install mariadb-server -y
+```
+
+2. Conguração inicial
+```bash
 sudo mysql_secure_installation
 # Enter current password for root (enter for none): Enter
 # Switch to unix_socket authentication: Y
@@ -177,17 +182,21 @@ sudo mysql_secure_installation
 # Reload privilege tables now? Y
 ```
 
-## Criar usuário no mariadb
+3. criar usuário administrativo
 ```bash
-mysql -u root -p
-GRANT ALL ON *.* TO 'admin'@'localhost' IDENTIFIED BY 'password' WITH GRANT OPTION;
+# entrar no mysql
+sudo mysql
+
+# criar usuário admin com senha
+CREATE USER 'admin'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 exit;
 ```
 
 ## Alterar senha do root no mariadb
 ```bash
-mysql -u root
+sudo mysql
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'novaSenha';
 FLUSH PRIVILEGES;
 exit;
