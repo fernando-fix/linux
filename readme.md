@@ -235,6 +235,8 @@ git clone https://github.com/username/repositorio
 cd /var/www/html/nome_do_projeto
 # Liberar permissões
 sudo chmod -R 755 storage bootstrap/cache
+# Mudar proprietário para www-data
+sudo chown -R www-data:www-data .
 ```
 
 ## alterar arquivos para acesso local
