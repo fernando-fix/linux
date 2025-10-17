@@ -1,10 +1,26 @@
-## Redefinir senha root
+# Índice
+- [Redefinir senha root](#redefinir-senha-root)
+- [Google Chrome](#google-chrome)
+- [Atualizar GIT](#atualizar-git)
+- [Configurar GIT](#configurar-git)
+- [Instalar Apache2](#instalar-apache2)
+- [Repositórios PHP (Ubuntu)](#repositórios-php-no-ubuntu)
+- [Repositórios PHP (Debian)](#repositórios-php-no-debian)
+- [Instalar PHP (versão reduzida)](#instalar-php-versão-reduzida)
+- [Instalar PHP (versão completa)](#instalar-php-versão-mais-completa)
+- [Finalizar instalação do Apache](#finalizar-instalação-do-apache)
+- [Alternar entre versões de PHP](#alternar-entre-versões-de-php)
+- [Composer](#composer)
+- [MariaDB](#mariadb)
+- [Alterar senha do root no MariaDB](#alterar-senha-do-root-no-mariadb)
+
+## <a id="redefinir-senha-root"></a> Redefinir senha root
 
 ```bash
 sudo passwd root
 ```
 
-## Google chrome
+## <a id="google-chrome"></a> Google Chrome
 
 ```bash
 sudo apt update
@@ -13,25 +29,25 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 ```
 
-## Update GIT
+## <a id="atualizar-git"></a> Atualizar GIT
 ```bash
 add-apt-repository ppa:git-core/ppa
 sudo apt update
 sudo apt install git
 ```
-## configurar git
+## <a id="configurar-git"></a> Configurar GIT
 ```bash
 git config --global user.name "SeuNome"
 git config --global user.email SeuEmail@hotmail.com
 git config --global init.defaultBranch main
 ```
 
-## Instalar apache2
+## <a id="instalar-apache2"></a> Instalar Apache2
 ```bash
 sudo apt install apache2
 ```
 
-## Adicionar repositórios PHP no ubuntu
+## <a id="repositórios-php-no-ubuntu"></a> Repositórios PHP (Ubuntu)
 ```bash
 sudo apt install software-properties-common ca-certificates lsb-release apt-transport-https -y
 sudo LC_ALL=C.UTF-8
@@ -39,7 +55,7 @@ sudo add-apt-repository ppa:ondrej/php -y
 sudo apt update 
 ```
 
-## Adicionar repositórios PHP no debian
+## <a id="repositórios-php-no-debian"></a> Repositórios PHP (Debian)
 ```bash
 sudo apt-get update
 sudo apt-get -y install lsb-release ca-certificates curl
@@ -51,7 +67,7 @@ sudo apt update
 ```
 
 
-## Instalar PHP (versão reduzida)
+## <a id="instalar-php-versão-reduzida"></a> Instalar PHP (versão reduzida)
 ```bash
 
 sudo apt install php7.4 php7.4-{fpm,mysql,mbstring,xml,curl,zip,sqlite3} -y
@@ -67,7 +83,7 @@ sudo apt install php8.3 php8.3-{fpm,mysql,mbstring,xml,curl,zip,sqlite3} -y
 php -v
 ```
 
-## Instalar PHP (versão mais completa)
+## <a id="instalar-php-versão-mais-completa"></a> Instalar PHP (versão mais completa)
 ```bash
 
 sudo apt install php7.4 php7.4-{cli,fpm,curl,mysqlnd,gd,opcache,zip,intl,common,bcmath,imagick,xmlrpc,readline,memcached,redis,mbstring,apcu,xml,dom,memcache,xdebug,soap,mbstring} -y
@@ -83,14 +99,14 @@ sudo apt install php8.3 php8.3-{cli,fpm,curl,mysqlnd,gd,opcache,zip,intl,common,
 php -v
 ```
 
-### Finalizar instalação do apache
+### <a id="finalizar-instalação-do-apache"></a> Finalizar instalação do Apache
 ```bash
 a2enmod proxy_fcgi sevenvif
 a2enconf php8.3-fpm
 systemctl restart apache2
 ```
 
-### Alternar entre versões de PHP
+### <a id="alternar-entre-versões-de-php"></a> Alternar entre versões de PHP
 ```bash
 # Alterar versão do PHP para php7.4
 sudo a2dismod php7.4
@@ -151,7 +167,7 @@ php -v
 sudo update-alternatives --config php
 ```
 
-## Composer
+## <a id="composer"></a> Composer
 ```bash
 sudo apt update
 sudo apt upgrade
@@ -162,7 +178,7 @@ php -r "unlink('composer-setup.php');"
 sudo mv composer.phar /usr/local/bin/composer
 ```
 
-## MariaDB
+## <a id="mariadb"></a> MariaDB
 1. Instalar MariaDB
 ```bash
 sudo apt update
@@ -194,7 +210,7 @@ FLUSH PRIVILEGES;
 exit;
 ```
 
-## Alterar senha do root no mariadb
+## <a id="alterar-senha-do-root-no-mariadb"></a> Alterar senha do root no MariaDB
 ```bash
 sudo mysql
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'novaSenha';
