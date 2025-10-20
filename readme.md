@@ -41,6 +41,15 @@ git config --global user.name "SeuNome"
 git config --global user.email SeuEmail@hotmail.com
 git config --global init.defaultBranch main
 ```
+Login GITHUB pelo terminal
+```bash
+sudo apt update && sudo apt install gh
+gh auth login
+# GitHub.com
+# HTTPS
+# Yes
+# Login with web browser
+```
 
 ## <a id="instalar-apache2"></a> Instalar Apache2
 ```bash
